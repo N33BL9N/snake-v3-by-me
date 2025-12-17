@@ -235,11 +235,6 @@ controlfps -= 0.0020f;  // Ускоряется с каждым фруктом
 
 MIT License - смотрите файл [LICENSE](LICENSE) для подробностей.
 
-## 👤 Автор
-
-**Ваше Имя / Псевдоним**  
-- GitHub: [@your-username](https://github.com/your-username)
-- Проект: [Double Snake Battle](https://github.com/your-username/double-snake)
 
 ---
 
