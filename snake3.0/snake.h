@@ -8,8 +8,8 @@ private:
     int dir = 4;  // STOP
     int fruitx;
     int fruity;
-    int score = 0;
-    int vscore = 0;
+    unsigned int score;
+    unsigned int vscore;
     std::string schet = "score:";
     int stopgame = 0;
     char snake = '0';

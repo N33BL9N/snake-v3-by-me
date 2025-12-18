@@ -8,6 +8,8 @@
 #include <fstream>
 snakecl::snakecl() {
     controlfps = 0.2;
+    score = 5;
+    vscore = 5;
 }
 void snakecl::xvostgrow() {
     if (xvostlen < 33) {
@@ -99,6 +101,7 @@ void snakecl::snakewasd() {
     }
 }
 void snakecl::simplebot() {
+    if(dir != 4){
     if (vsnakey > fruity) {
         vsnakey -= 0.5f;
     }
@@ -114,6 +117,7 @@ void snakecl::simplebot() {
     if (vsnakex == snakex - 0.5 && vsnakey == snakey - 0.5) {
         vsnakex++;
         vsnakey++;
+    }
     }
 }
 void snakecl::gameover(bool* flag) {
@@ -147,10 +151,10 @@ void snakecl::snakewall(bool* flag) {
             gameover(flag);
         }
     }
-    if (score == -10) {
+    if (score <= 0) {
         gameover(flag);
     }
-    if (vscore == -10) {
+    if (vscore <= 0) {
         gameover(flag);
     }
     if (vsnakex == snakex&& vsnakey == snakey) {
@@ -164,21 +168,21 @@ void snakecl::fruitfunc() {
 }
 
 void snakecl::speed() {
-    controlfps -= 0.0020f;
+    controlfps -= 0.0050f;
 }
 void snakecl::stolk() {
     if (snakex == fruitx && snakey == fruity) {
         fruitfunc();
+        xvostgrow();
         score++;
         vscore--;
-        xvostgrow();
         speed();
     }
-    if (vsnakex == fruitx && vsnakey == fruity) {
+    else if (vsnakex == fruitx && vsnakey == fruity) {
         fruitfunc();
+        vxvostgrow();
         vscore++;
         score--;
-        vxvostgrow();
         speed();
     }
 }
